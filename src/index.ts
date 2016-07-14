@@ -10,7 +10,7 @@ export = function tslint({options = undefined, exclude = null} = {}) {
     return {
       module: {
         preLoaders: get(this, 'module.preLoaders', []).concat([
-          { test: /\.tsx?$/, loader: 'tslint', exclude: exclude || this.metadata.root ? [path.join(this.metadata.root, 'node_modules')] : [] }
+          { test: /\.tsx?$/, loader: 'tslint', exclude: exclude || (this.metadata.root ? [path.join(this.metadata.root, 'node_modules')] : []) }
         ])
       },
       tslint: options
