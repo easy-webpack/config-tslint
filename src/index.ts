@@ -1,4 +1,4 @@
-import {WebpackConfig, get} from '@easy-webpack/core'
+import {WebpackConfigWithMetadata, get} from '@easy-webpack/core'
 import * as path from 'path'
 
 /**
@@ -6,7 +6,7 @@ import * as path from 'path'
  * See: https://github.com/wbuchwalter/tslint-loader
  */
 export = function tslint({options = undefined, exclude = null} = {}) {
-  return function tslint(this: WebpackConfig): WebpackConfig {
+  return function tslint(this: WebpackConfigWithMetadata): WebpackConfigWithMetadata {
     return {
       module: {
         preLoaders: get(this, 'module.preLoaders', []).concat([
