@@ -9,8 +9,8 @@ export = function tslint({options = undefined, exclude = null} = {}) {
   return function tslint(this: WebpackConfigWithMetadata): WebpackConfigWithMetadata {
     return {
       module: {
-        preLoaders: get(this, 'module.preLoaders', []).concat([
-          { test: /\.tsx?$/, loader: 'tslint', exclude: exclude || (this.metadata.root ? [path.join(this.metadata.root, 'node_modules')] : []) }
+        loaders: get(this, 'module.loaders', []).concat([
+          { test: /\.tsx?$/, loader: 'tslint', enforce: 'pre', exclude: exclude || (this.metadata.root ? [path.join(this.metadata.root, 'node_modules')] : []) }
         ])
       },
       tslint: options
