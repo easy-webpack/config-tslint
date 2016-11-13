@@ -1,5 +1,6 @@
 import {WebpackConfigWithMetadata, get} from '@easy-webpack/core'
 import * as path from 'path'
+import * as webpack from 'webpack'
 
 /**
  * Tslint loader support for *.ts files
@@ -13,7 +14,13 @@ export = function tslint({options = undefined, exclude = null} = {}) {
           { test: /\.tsx?$/, loader: 'tslint-loader', enforce: 'pre', exclude: exclude || (this.metadata.root ? [path.join(this.metadata.root, 'node_modules')] : []) }
         ])
       },
-      tslint: options
+      plugins: [
+        new webpack.LoaderOptionsPlugin({
+          options: {
+            tslint: options
+          }
+        })
+      ]
     }
   }
 }
