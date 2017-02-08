@@ -1,4 +1,6 @@
 # @easy-webpack/config-tslint
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/easy-webpack/config-tslint.svg)](https://greenkeeper.io/)
 Lint TypeScript file using [tslint](https://palantir.github.io/tslint/) and [tslint-loader](https://github.com/wbuchwalter/tslint-loader).
 
 # Installation
